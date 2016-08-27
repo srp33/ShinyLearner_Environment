@@ -1,6 +1,5 @@
 FROM java:8u91-jre
 
-#Add python to PATH
 ENV PATH /opt/conda/bin:$PATH
 
 RUN echo "deb http://cran.cnr.berkeley.edu/bin/linux/debian jessie-cran3/" >> /etc/apt/sources.list \
