@@ -93,9 +93,3 @@ RUN apt-get -y install git
 RUN apt-get -y remove cpp-4.9 && apt-get -y autoremove \
   && rm -rf /usr/share/mime /usr/share/mime /usr/share/perl /usr/share/tcltk /usr/share/man \
   && rm -rf /usr/share/doc /usr/share/locale /usr/share/perl5
-
-#Install ML-Flex-Lite
-RUN git clone https://github.com/srp33/ShinyLearner.git
-VOLUME /ShinyLearner/v
-WORKDIR /ShinyLearner
-ENTRYPOINT ["./docker_nc_mc.sh"]
