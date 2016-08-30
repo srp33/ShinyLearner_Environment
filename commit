@@ -8,7 +8,7 @@ then
   exit 1
 fi
 
-#python UpdateVersion.py .travis.yml
+python UpdateVersion.py travis.yml.template VERSION .travis.yml
 
 git add .travis.yml
 git add --all .
