@@ -6,9 +6,10 @@ install: true
 branches:
   only:
     - master
-before_install:
+#before_install:
+#after_success:
+script:
   - sudo docker build -t srp33/shinylearner_environment .
   - sudo docker images
-after_success:
   - sudo docker login -e="$DOCKER_MAIL" -u="$DOCKER_USER" -p="$DOCKER_PASS"
-  - docker push srp33/shinylearner_environment:version1
+  - sudo docker push srp33/shinylearner_environment
