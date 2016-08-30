@@ -9,8 +9,5 @@ branches:
 before_install:
   - sudo docker build -t srp33/shinylearner_environment .
   - sudo docker images
-#after_success:
-#  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-#      sudo docker login -e="$DOCKER_MAIL" -u="$DOCKER_USER" -p="$DOCKER_PASS";
-#      docker push srp33/shinylearner_environment:version1;
-#    fi
+after_success:
+  - sudo docker login -e="$DOCKER_MAIL" -u="$DOCKER_USER" -p="$DOCKER_PASS"; docker push srp33/shinylearner_environment:version1;
