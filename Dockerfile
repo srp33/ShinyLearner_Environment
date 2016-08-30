@@ -1,4 +1,4 @@
-FROM java:8u91-jre
+FROM openjdk:8u102-jre
 
 ENV PATH /opt/conda/bin:$PATH
 
