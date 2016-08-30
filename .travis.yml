@@ -1,6 +1,7 @@
 sudo: required
 services:
   - docker
+language: generic
 install: true
 branches:
   only:
