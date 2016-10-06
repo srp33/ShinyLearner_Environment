@@ -6,6 +6,7 @@ RUN echo "deb http://cran.cnr.berkeley.edu/bin/linux/debian jessie-cran3/" >> /e
   && apt-get update \
   && apt-get -y --force-yes install libcurl4-openssl-dev r-base-core pandoc git \
   && R -e "install.packages('dplyr',repos='https://rweb.crmda.ku.edu/cran/')" \
+  && R -e "install.packages('magrittr',repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "install.packages('knitr',repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "install.packages('rmarkdown',repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "install.packages('readr',repos='https://rweb.crmda.ku.edu/cran/')" \
