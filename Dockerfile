@@ -4,7 +4,10 @@ ENV PATH /opt/conda/bin:$PATH
 
 RUN echo "deb http://cran.cnr.berkeley.edu/bin/linux/debian jessie-cran3/" >> /etc/apt/sources.list \
   && apt-get update \
-  && apt-get -y --force-yes install libcurl4-openssl-dev r-base-core pandoc git \
+  && apt-get -y --force-yes install libcurl4-openssl-dev libssl-dev r-base-core pandoc git \
+  && R -e "install.packages('devtools',repos='https://rweb.crmda.ku.edu/cran/')" \
+# Not using CRAN mlr: && R -e "install.packages('mlr', repos='https://rweb.crmda.ku.edu/cran/')" \
+  && R -e "devtools::install_github('mlr-org/mlr')" \
   && R -e "install.packages('dplyr',repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "install.packages('magrittr',repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "install.packages('knitr',repos='https://rweb.crmda.ku.edu/cran/')" \
@@ -13,7 +16,8 @@ RUN echo "deb http://cran.cnr.berkeley.edu/bin/linux/debian jessie-cran3/" >> /e
   && R -e "install.packages('AUC',repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "install.packages('RankAggreg', repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "install.packages('ggplot2', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('mlr', repos='https://rweb.crmda.ku.edu/cran/')" \
+# Unused Package: && R -e "install.packages('earth',repos='https://rweb.crmda.ku.edu/cran/')" \
+# Unused Package: && R -e "install.packages('mboost',repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "install.packages('randomForestSRC', repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "install.packages('mRMRe', repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "install.packages('nnet', repos='https://rweb.crmda.ku.edu/cran/')" \
