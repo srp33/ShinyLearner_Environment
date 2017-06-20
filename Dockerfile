@@ -53,7 +53,7 @@ RUN echo "deb http://cran.cnr.berkeley.edu/bin/linux/debian jessie-cran3/" >> /e
   && R -e "install.packages('elasticnet', repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "install.packages('xgboost', repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "install.packages('ROCR',repos='https://rweb.crmda.ku.edu/cran/')" \
-  && wget --quiet https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda.sh \
+  && wget --quiet https://repo.continuum.io/miniconda/Miniconda2-4.3.21-Linux-x86_64.sh -O ~/miniconda.sh \
   && /bin/bash ~/miniconda.sh -b -p /opt/conda \ 
   && rm ~/miniconda.sh \
   && /opt/conda/bin/conda install -y nomkl scikit-learn pandas conda-build \
