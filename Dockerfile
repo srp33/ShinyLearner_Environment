@@ -13,6 +13,7 @@ RUN echo "deb http://cran.cnr.berkeley.edu/bin/linux/debian jessie-cran3/" >> /e
   && R -e "install.packages('knitr',repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "install.packages('rmarkdown',repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "install.packages('readr',repos='https://rweb.crmda.ku.edu/cran/')" \
+  && R -e "install.packages('data.table',repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "install.packages('AUC',repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "install.packages('RankAggreg', repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "install.packages('ggplot2', repos='https://rweb.crmda.ku.edu/cran/')" \
