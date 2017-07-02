@@ -4,7 +4,7 @@ ENV PATH /opt/conda/bin:$PATH
 
 RUN echo "deb http://cran.cnr.berkeley.edu/bin/linux/debian jessie-cran3/" >> /etc/apt/sources.list \
   && apt-get update \
-  && apt-get -y --force-yes install libcurl4-openssl-dev libssl-dev r-base-core pandoc git \
+  && apt-get -y --force-yes install libcurl4-openssl-dev libssl-dev r-base-core pandoc git parallel \
   ##&& R -e "install.packages('devtools',repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "install.packages('mlr', repos='https://rweb.crmda.ku.edu/cran/')" \
   ##&& R -e "devtools::install_github('mlr-org/mlr')" \
@@ -81,5 +81,8 @@ RUN echo "deb http://cran.cnr.berkeley.edu/bin/linux/debian jessie-cran3/" >> /e
   && find /usr/lib/R/library/ -depth -wholename '*/demo' -exec rm -r "{}" \; \
   && rm -rf /usr/local/lib/R/site-library/BH \
   && apt-get -y remove cpp-4.9 && apt-get -y autoremove \
-  && rm -rf /usr/share/mime /usr/share/mime /usr/share/perl /usr/share/tcltk /usr/share/man \
-  && rm -rf /usr/share/doc /usr/share/locale /usr/share/perl5
+  && rm -rf /usr/share/mime /usr/share/mime /usr/share/tcltk /usr/share/man \
+  && rm -rf /usr/share/doc /usr/share/locale
+
+#  && rm -rf /usr/share/mime /usr/share/mime /usr/share/perl /usr/share/tcltk /usr/share/man \
+#  && rm -rf /usr/share/doc /usr/share/locale /usr/share/perl5
