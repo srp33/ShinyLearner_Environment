@@ -7,36 +7,9 @@ RUN echo "deb http://cran.cnr.berkeley.edu/bin/linux/debian jessie-cran3/" >> /e
   && apt-get -y --force-yes install libcurl4-openssl-dev libssl-dev r-base-core pandoc git parallel \
   && apt-get -y --force-yes install libxml2-dev \
   && R -e "install.packages('devtools',repos='https://rweb.crmda.ku.edu/cran/')" \
-##  && R -e "install.packages('mlr', repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "devtools::install_github('mlr-org/mlr')" \
-  && R -e "install.packages('dplyr',repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('magrittr',repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('knitr',repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('rmarkdown',repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('readr',repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('data.table',repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('AUC',repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('ROCR',repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('RankAggreg', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('ggplot2', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('C50', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('RRF', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('adabag', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('rpart', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('party', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('kernlab', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('glmnet', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('h2o', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('kknn', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('RSNNS', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('nnet', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('e1071', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('randomForest', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('randomForestSRC', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('ranger', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('klaR', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('sda', repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "install.packages('xgboost', repos='https://rweb.crmda.ku.edu/cran/')" \
+##  && R -e "install.packages('mlr', repos='https://rweb.crmda.ku.edu/cran/')" \
+  && R -e "install.packages(c('dplyr', 'magrittr', 'knitr', 'rmarkdown', 'readr', 'data.table', 'AUC', 'ROCR', 'RankAggreg', 'ggplot2', 'C50', 'RRF', 'adabag', 'rpart', 'party', 'kernlab', 'glmnet', 'h2o', 'kknn', 'RSNNS', 'nnet', 'e1071', 'randomForest', 'randomForestSRC', 'ranger', 'klaR', 'sda', 'xgboost'), repos='https://rweb.crmda.ku.edu/cran/')" \
   && wget --quiet https://repo.continuum.io/miniconda/Miniconda2-4.3.21-Linux-x86_64.sh -O ~/miniconda.sh \
   && /bin/bash ~/miniconda.sh -b -p /opt/conda \ 
   && rm ~/miniconda.sh \
