@@ -36,7 +36,8 @@ RUN echo "deb http://cran.cnr.berkeley.edu/bin/linux/debian jessie-cran3/" >> /e
   && find /usr/lib/R/library/ -depth -wholename '*/staticdocs' -exec rm -r "{}" \; \
   && find /usr/lib/R/library/ -depth -wholename '*/demo' -exec rm -r "{}" \; \
   && rm -rf /usr/local/lib/R/site-library/BH \
-  && apt-get -y remove cpp-4.9 && apt-get -y autoremove \
+  #&& apt-get -y remove cpp-4.9 && apt-get -y autoremove \
+  && apt-get -y autoremove \
   && rm -rf /usr/share/mime /usr/share/mime /usr/share/tcltk /usr/share/man \
   && rm -rf /usr/share/doc /usr/share/locale
 
