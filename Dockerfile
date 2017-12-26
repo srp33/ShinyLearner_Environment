@@ -9,9 +9,9 @@ RUN echo "deb http://cran.cnr.berkeley.edu/bin/linux/debian jessie-cran3/" >> /e
   && R -e "install.packages('devtools',repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "devtools::install_github('mlr-org/mlr')" \
 ##  && R -e "install.packages('mlr', repos='https://rweb.crmda.ku.edu/cran/')" \
-  #&& R -e "install.packages(c('dplyr', 'magrittr', 'knitr', 'rmarkdown', 'readr', 'data.table', 'AUC', 'ROCR', 'RankAggreg', 'ggplot2', 'C50', 'RRF', 'adabag', 'rpart', 'party', 'kernlab', 'glmnet', 'h2o', 'kknn', 'RSNNS', 'nnet', 'e1071', 'randomForest', 'randomForestSRC', 'ranger', 'klaR', 'sda', 'xgboost', 'parallelMap'), repos='https://rweb.crmda.ku.edu/cran/', clean=TRUE, Ncpus=3)" \
-  && R -e "install.packages(c('C50'), repos='https://rweb.crmda.ku.edu/cran/', clean=TRUE, Ncpus=3)" \
-  #&& R -e "install.packages(c('ggplot2'), repos='https://rweb.crmda.ku.edu/cran/', clean=TRUE, Ncpus=3)" \
+  && R -e "install.packages(c('dplyr', 'magrittr', 'knitr', 'rmarkdown', 'readr', 'data.table', 'AUC', 'ROCR', 'RankAggreg', 'ggplot2', 'C50', 'RRF', 'adabag', 'rpart', 'party', 'kernlab', 'glmnet', 'h2o', 'kknn', 'RSNNS', 'nnet', 'e1071', 'randomForest', 'randomForestSRC', 'ranger', 'klaR', 'sda', 'xgboost', 'parallelMap'), repos='https://rweb.crmda.ku.edu/cran/', dependencies=TRUE, clean=TRUE, Ncpus=3)" \
+  ##&& R -e "install.packages(c('C50'), repos='https://rweb.crmda.ku.edu/cran/', clean=TRUE, Ncpus=3)" \
+  ###&& R -e "install.packages(c('ggplot2'), repos='https://rweb.crmda.ku.edu/cran/', clean=TRUE, Ncpus=3)" \
   && wget --quiet https://repo.continuum.io/miniconda/Miniconda2-4.3.21-Linux-x86_64.sh -O ~/miniconda.sh \
   && /bin/bash ~/miniconda.sh -b -p /opt/conda \ 
   && rm ~/miniconda.sh \
