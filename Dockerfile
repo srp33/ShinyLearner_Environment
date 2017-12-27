@@ -6,11 +6,8 @@ ENV PATH /opt/conda/bin:$PATH
 ##  && R -e "install.packages(c('ggplot2'), repos='https://rweb.crmda.ku.edu/cran/', clean=TRUE, Ncpus=3)" \
 #  && apt-get -y --force-yes pandoc \
 
-RUN echo "deb http://cran.cnr.berkeley.edu/bin/linux/debian jessie-cran3/" >> /etc/apt/sources.list \
-  && apt-get update \
-  && apt-get -y --force-yes install libcurl4-openssl-dev libssl-dev r-base-core git parallel \
-  && apt-get -y --force-yes install libxml2-dev \
-  && R -e "install.packages(c('libcoin'), repos='https://rweb.crmda.ku.edu/cran/', clean=TRUE, Ncpus=3)" \
+RUN echo "deb http://cran.rstudio.com/bin/linux/debian stretch-cran34/" >> /etc/apt/sources.list
+RUN apt-get update && apt-get -y --allow-unauthenticated install r-base r-base-dev libcurl4-openssl-dev libssl-dev parallel libxml2-dev \
   && R -e "install.packages(c('dplyr', 'magrittr', 'knitr', 'rmarkdown', 'readr', 'data.table', 'AUC', 'ROCR', 'RankAggreg', 'C50', 'RRF', 'adabag', 'rpart', 'party', 'kernlab', 'glmnet', 'h2o', 'kknn', 'RSNNS', 'nnet', 'e1071', 'randomForest', 'randomForestSRC', 'ranger', 'klaR', 'sda', 'xgboost', 'parallelMap'), repos='https://rweb.crmda.ku.edu/cran/', clean=TRUE, Ncpus=3)" \
   && R -e "install.packages('devtools',repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "devtools::install_github('mlr-org/mlr')" \
@@ -42,8 +39,6 @@ RUN echo "deb http://cran.cnr.berkeley.edu/bin/linux/debian jessie-cran3/" >> /e
   && rm -rf /usr/local/lib/R/site-library/BH \
   #&& apt-get -y remove cpp-4.9 && apt-get -y autoremove \
   && apt-get -y autoremove \
-  && rm -rf /usr/share/mime /usr/share/mime /usr/share/tcltk /usr/share/man \
-  && rm -rf /usr/share/doc /usr/share/locale
-
-#  && rm -rf /usr/share/mime /usr/share/mime /usr/share/perl /usr/share/tcltk /usr/share/man \
-#  && rm -rf /usr/share/doc /usr/share/locale /usr/share/perl5
+  && rm -rf /usr/share/mime /usr/share/tcltk  \
+  && rm -rf /usr/share/tcltk /usr/share/man \
+  && rm -rf /usr/share/doc /usr/share/locale /usr/share/perl5
