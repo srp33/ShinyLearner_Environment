@@ -10,7 +10,7 @@ RUN echo "deb http://cran.cnr.berkeley.edu/bin/linux/debian jessie-cran3/" >> /e
   && apt-get update \
   && apt-get -y --force-yes install libcurl4-openssl-dev libssl-dev r-base-core git parallel \
   && apt-get -y --force-yes install libxml2-dev \
-  && R -e "install.packages(c('dplyr', 'magrittr', 'knitr', 'rmarkdown', 'readr', 'data.table', 'AUC', 'ROCR', 'RankAggreg', 'C50', 'RRF', 'adabag', 'rpart', 'party', 'kernlab', 'glmnet', 'h2o', 'kknn', 'RSNNS', 'nnet', 'e1071', 'randomForest', 'randomForestSRC', 'ranger', 'klaR', 'sda', 'xgboost', 'parallelMap'), repos='https://rweb.crmda.ku.edu/cran/', dependencies=TRUE, clean=TRUE, Ncpus=3)" \
+  && R -e "install.packages(c('dplyr', 'magrittr', 'knitr', 'rmarkdown', 'readr', 'data.table', 'AUC', 'ROCR', 'RankAggreg', 'libcoin', 'C50', 'RRF', 'adabag', 'rpart', 'party', 'kernlab', 'glmnet', 'h2o', 'kknn', 'RSNNS', 'nnet', 'e1071', 'randomForest', 'randomForestSRC', 'ranger', 'klaR', 'sda', 'xgboost', 'parallelMap'), repos='https://rweb.crmda.ku.edu/cran/', clean=TRUE, Ncpus=3)" \
   && R -e "install.packages('devtools',repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "devtools::install_github('mlr-org/mlr')" \
   && wget --quiet https://repo.continuum.io/miniconda/Miniconda2-4.3.21-Linux-x86_64.sh -O ~/miniconda.sh \
