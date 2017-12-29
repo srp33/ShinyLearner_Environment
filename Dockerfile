@@ -11,11 +11,9 @@ RUN apt-get update && apt-get -y --allow-unauthenticated install r-base r-base-d
   && R -e "install.packages(c('dplyr', 'magrittr', 'knitr', 'rmarkdown', 'readr', 'data.table', 'AUC', 'ROCR', 'RankAggreg', 'C50', 'RRF', 'adabag', 'rpart', 'party', 'kernlab', 'glmnet', 'h2o', 'kknn', 'RSNNS', 'nnet', 'e1071', 'randomForest', 'randomForestSRC', 'ranger', 'klaR', 'sda', 'xgboost', 'parallelMap'), repos='https://rweb.crmda.ku.edu/cran/', clean=TRUE, Ncpus=3)" \
   && R -e "install.packages('devtools',repos='https://rweb.crmda.ku.edu/cran/')" \
   && R -e "devtools::install_github('mlr-org/mlr')" \
-  && wget --quiet https://repo.continuum.io/miniconda/Miniconda2-4.3.21-Linux-x86_64.sh -O ~/miniconda.sh \
-  && /bin/bash ~/miniconda.sh -b -p /opt/conda \ 
-  && rm ~/miniconda.sh \
-  && /opt/conda/bin/conda install -y nomkl scikit-learn pandas conda-build \
-  && /opt/conda/bin/conda clean --all \
+  && apt-get -y --allow-unauthenticated install build-essential python-dev python-setuptools python-numpy python-scipy libatlas-dev libatlas3gf-base \
+  && update-alternatives --set libblas.so.3 /usr/lib/atlas-base/atlas/libblas.so.3 \
+  && update-alternatives --set liblapack.so.3 /usr/lib/atlas-base/atlas/liblapack.so.3 \
   && find /usr/local/lib/R/site-library/ -depth -wholename '*/html' -exec rm -r "{}" \; \
   && find /usr/local/lib/R/site-library/ -depth -wholename '*/data' -exec rm -r "{}" \; \
   && find /usr/local/lib/R/site-library/ -depth -wholename '*/doc' -exec rm -r "{}" \; \
@@ -42,3 +40,12 @@ RUN apt-get update && apt-get -y --allow-unauthenticated install r-base r-base-d
   && rm -rf /usr/share/mime /usr/share/tcltk  \
   && rm -rf /usr/share/tcltk /usr/share/man \
   && rm -rf /usr/share/doc /usr/share/locale /usr/share/perl5
+
+
+
+
+#  && wget --quiet https://repo.continuum.io/miniconda/Miniconda2-4.3.21-Linux-x86_64.sh -O ~/#miniconda.sh \
+#  && /bin/bash ~/miniconda.sh -b -p /opt/conda \ 
+#  && rm ~/miniconda.sh \
+#  && /opt/conda/bin/conda install -y nomkl scikit-learn pandas conda-build \
+#  && /opt/conda/bin/conda clean --all \
