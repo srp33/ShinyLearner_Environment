@@ -1,7 +1,5 @@
 FROM openjdk:8u151-jre
 
-ENV PATH /opt/conda/bin:$PATH
-
 RUN echo "deb http://cran.rstudio.com/bin/linux/debian stretch-cran34/" >> /etc/apt/sources.list \
   && apt-get update \
   && apt-get -y --allow-unauthenticated install build-essential python3-dev python3-setuptools python3-numpy python3-scipy libatlas-dev libatlas3-base libatlas-base-dev python3-pip \
@@ -49,6 +47,7 @@ RUN echo "deb http://cran.rstudio.com/bin/linux/debian stretch-cran34/" >> /etc/
 ##  && R -e "install.packages(c('ggplot2'), repos='https://rweb.crmda.ku.edu/cran/', clean=TRUE, Ncpus=3)" \
 #  && apt-get -y --force-yes pandoc \
 
+#ENV PATH /opt/conda/bin:$PATH
 #  && wget --quiet https://repo.continuum.io/miniconda/Miniconda2-4.3.21-Linux-x86_64.sh -O ~/#miniconda.sh \
 #  && /bin/bash ~/miniconda.sh -b -p /opt/conda \ 
 #  && rm ~/miniconda.sh \
