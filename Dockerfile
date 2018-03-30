@@ -7,9 +7,7 @@ RUN echo "deb http://cran.rstudio.com/bin/linux/debian stretch-cran34/" >> /etc/
   && update-alternatives --set liblapack.so.3 /usr/lib/atlas-base/atlas/liblapack.so.3 \
   && pip3 install --no-cache-dir pandas scikit-learn \
   && apt-get -y --allow-unauthenticated install r-base r-base-dev libcurl4-openssl-dev libssl-dev parallel libxml2-dev \
-  && R -e "install.packages(c('dplyr', 'magrittr', 'knitr', 'rmarkdown', 'readr', 'data.table', 'AUC', 'ROCR', 'RankAggreg', 'C50', 'RRF', 'adabag', 'rpart', 'party', 'kernlab', 'glmnet', 'h2o', 'kknn', 'RSNNS', 'nnet', 'e1071', 'randomForest', 'randomForestSRC', 'ranger', 'klaR', 'sda', 'xgboost', 'parallelMap', 'earth'), repos='https://rweb.crmda.ku.edu/cran/', clean=TRUE, Ncpus=3)" \
-  && R -e "install.packages('devtools',repos='https://rweb.crmda.ku.edu/cran/')" \
-  && R -e "devtools::install_github('mlr-org/mlr')" \
+  && R -e "install.packages(c('dplyr', 'magrittr', 'knitr', 'rmarkdown', 'readr', 'data.table', 'AUC', 'ROCR', 'RankAggreg', 'mlr', 'C50', 'RRF', 'adabag', 'rpart', 'party', 'kernlab', 'glmnet', 'h2o', 'kknn', 'RSNNS', 'nnet', 'e1071', 'randomForest', 'randomForestSRC', 'ranger', 'klaR', 'sda', 'xgboost', 'parallelMap', 'earth'), repos='https://rweb.crmda.ku.edu/cran/', clean=TRUE, Ncpus=3)" \
   && find /usr/local/lib/R/site-library/ -depth -wholename '*/html' -exec rm -r "{}" \; \
   && find /usr/local/lib/R/site-library/ -depth -wholename '*/data' -exec rm -r "{}" \; \
   && find /usr/local/lib/R/site-library/ -depth -wholename '*/doc' -exec rm -r "{}" \; \
@@ -38,6 +36,8 @@ RUN echo "deb http://cran.rstudio.com/bin/linux/debian stretch-cran34/" >> /etc/
   && apt-get -y clean
 
 
+#  && R -e "install.packages('devtools',repos='https://rweb.crmda.ku.edu/cran/')" \
+#  && R -e "devtools::install_github('mlr-org/mlr')" \
 
 #  && apt-get -y --allow-unauthenticated install build-essential python-dev python-setuptools python-numpy python-scipy libatlas-dev libatlas3-base \
 #  && update-alternatives --set libblas.so.3 /usr/lib/atlas-base/atlas/libblas.so.3 \
