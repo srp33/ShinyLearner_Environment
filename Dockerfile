@@ -1,6 +1,6 @@
 FROM openjdk:8u151-jre
 
-RUN echo "deb http://cran.rstudio.com/bin/linux/debian stretch-cran34/" >> /etc/apt/sources.list \
+RUN echo "deb http://cran.rstudio.com/bin/linux/debian stretch-cran35/" >> /etc/apt/sources.list \
   && apt-get update \
   && apt-get -y --allow-unauthenticated install build-essential python3-dev python3-setuptools python3-numpy python3-scipy libatlas-dev libatlas3-base libatlas-base-dev python3-pip \
   && update-alternatives --set libblas.so.3 /usr/lib/atlas-base/atlas/libblas.so.3 \
