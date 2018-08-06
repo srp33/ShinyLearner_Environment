@@ -5,7 +5,8 @@ RUN echo "deb http://cran.rstudio.com/bin/linux/debian stretch-cran35/" >> /etc/
   && apt-get -y --allow-unauthenticated install build-essential python3-dev python3-setuptools python3-numpy python3-scipy libatlas-dev libatlas3-base libatlas-base-dev python3-pip \
   && update-alternatives --set libblas.so.3 /usr/lib/atlas-base/atlas/libblas.so.3 \
   && update-alternatives --set liblapack.so.3 /usr/lib/atlas-base/atlas/liblapack.so.3 \
-  && pip3 install --no-binary --no-cache-dir pandas scikit-learn keras tensorflow \
+  && pip3 uninstall -y scipy numpy pandas scikit-learn keras tensorflow \
+  && pip3 install --no-binary pandas scikit-learn keras tensorflow \
   && apt-get -y --allow-unauthenticated install r-base r-base-dev libcurl4-openssl-dev libssl-dev parallel libxml2-dev \
   && R -e "install.packages(c('dplyr', 'magrittr', 'knitr', 'rmarkdown', 'readr', 'data.table', 'AUC', 'ROCR', 'RankAggreg', 'mlr', 'C50', 'RRF', 'adabag', 'rpart', 'party', 'kernlab', 'glmnet', 'h2o', 'kknn', 'RSNNS', 'nnet', 'e1071', 'randomForest', 'randomForestSRC', 'ranger', 'klaR', 'sda', 'xgboost', 'parallelMap', 'earth'), repos='https://rweb.crmda.ku.edu/cran/', clean=TRUE, Ncpus=3)" \
   && find /usr/local/lib/R/site-library/ -depth -wholename '*/html' -exec rm -r "{}" \; \
