@@ -2,4 +2,4 @@
 
 version=$(cat VERSION)
 
-sudo docker build -t srp33/shinylearner_environment:version${version} .
+docker build -t srp33/shinylearner_environment:version${version} .
