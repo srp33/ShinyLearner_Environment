@@ -29,4 +29,4 @@ RUN bash install_debian_packages.sh
 VOLUME /InputData
 VOLUME /OutputData
 
-#ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
