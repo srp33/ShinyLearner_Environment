@@ -1,6 +1,5 @@
 apt-get update --fix-missing && \
-  #apt-get install -y wget bzip2 ca-certificates curl git openjdk-8-jre-headless apt-transport-https software-properties-common gosu && \
-  apt-get install -y wget bzip2 ca-certificates curl git openjdk-8-jre-headless apt-transport-https software-properties-common && \
+  apt-get install -y wget bzip2 ca-certificates curl git openjdk-8-jre-headless apt-transport-https software-properties-common gosu && \
   apt-get update && \
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 && \
   add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/' && \
