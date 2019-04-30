@@ -20,12 +20,13 @@ COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 # Install and configure packages
 ####################################################################################
 
-RUN bash install_debian_packages.sh && \
-    bash install_r_packages.sh && \
-    bash install_python_packages.sh && \
-    chmod +x /usr/local/bin/entrypoint.sh
+RUN bash install_debian_packages.sh
+#RUN bash install_debian_packages.sh && \
+#    bash install_r_packages.sh && \
+#    bash install_python_packages.sh && \
+#    chmod +x /usr/local/bin/entrypoint.sh
 
 VOLUME /InputData
 VOLUME /OutputData
 
-ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
+#ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
