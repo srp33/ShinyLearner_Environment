@@ -8,9 +8,13 @@ then
   exit 1
 fi
 
-python UpdateVersion.py travis.yml.template VERSION .travis.yml
+#python UpdateVersion.py travis.yml.template VERSION .travis.yml
 
-git add .travis.yml
+#git add .travis.yml
 git add --all .
 git commit -m "$message"
 git push origin master
+
+docker build -t srp33/shinylearner_environment:version$(cat VERSION) .
+docker login
+docker push srp33/shinylearner_environment:version$(cat VERSION)
