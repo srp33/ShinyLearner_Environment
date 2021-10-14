@@ -22,12 +22,11 @@ apt-get update --fix-missing && \
   apt-get install -y parallel && \
   apt-get install -y software-properties-common && \
   apt-get install -y wget && \
-  apt-get update && \
   apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9 && \
   add-apt-repository 'deb https://cloud.r-project.org/bin/linux/ubuntu bionic-cran35/' && \
   apt-get update && \
   ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone && \
-  apt-get -y --allow-unauthenticated install r-base r-base-dev libcurl4-openssl-dev libssl-dev libxml2-dev && \
+  apt-get -y --allow-unauthenticated --no-install-recommends install r-base r-base-dev libcurl4-openssl-dev libssl-dev libxml2-dev && \
   find /usr/local/lib/R/site-library/ -depth -wholename '*/html' -exec rm -r "{}" \; && \
   find /usr/local/lib/R/site-library/ -depth -wholename '*/data' -exec rm -r "{}" \; && \
   find /usr/local/lib/R/site-library/ -depth -wholename '*/doc' -exec rm -r "{}" \; && \
@@ -54,3 +53,10 @@ apt-get update --fix-missing && \
   rm -rf /usr/share/doc /usr/share/locale /usr/share/perl5 && \
   apt-get -y autoremove && \
   apt-get clean
+
+
+# Update to R 4.1.1:
+#  apt-get update -qq && \
+#  apt install --no-install-recommends software-properties-common dirmngr && \
+#  wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc && \
+#  add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/" && \

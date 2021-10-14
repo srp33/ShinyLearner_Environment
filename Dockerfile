@@ -18,9 +18,9 @@ COPY install*.sh /
 # Install and configure packages
 ####################################################################################
 
-RUN bash install_debian_packages.sh && \
-    bash install_r_packages.sh && \
-    bash install_python_packages.sh
+RUN bash install_debian_packages.sh
+RUN bash install_r_packages.sh
+RUN bash install_python_packages.sh
 
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 RUN export JAVA_HOME
