@@ -17,3 +17,6 @@ git push origin master
 docker build -t srp33/shinylearner_environment:version$(cat VERSION) .
 docker login
 docker push srp33/shinylearner_environment:version$(cat VERSION)
+
+cd ../ShinyLearner_Environment_gpu
+./commit "$message"
